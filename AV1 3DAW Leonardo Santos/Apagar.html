@@ -1,0 +1,29 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Apagar</title>
+</head>
+<script>
+        function abrirForm() {
+                let id = document.getElementById("id").value;
+                
+                let xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("GET", "http://localhost/AV1%203DAW%20Leonardo%20Santos/Apagar.html?id=" + id);
+                xmlHttp.send();
+                
+                location.reload();
+                
+            }
+    </script>
+<body>
+    <form action="Apagar.php">
+        Id:<input type="text" name="Id"><br>
+        <input type="submit" name="botao" value="enviar" onclick="abrirForm">
+    </form> 
+</body>
+</html>

@@ -1,0 +1,2 @@
+tu;tu@;123;adm;aluno
+eu;eu@;321;adm;prof

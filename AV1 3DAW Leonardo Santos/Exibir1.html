@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exibir1</title>
+    <script>
+            function criarLinhaTabela(pobjReturnJSON) {
+                let tb = document.getElementById("tab");
+                 let tr = document.createElement("tr");
+
+                let tdNome = document.createElement("td");
+                textnode = document.createTextNode(pobjReturnJSON.Nome);
+                td2.appendChild(textnode); 
+                tr.appendChild(tdNome);
+    
+                let tdId = document.createElement("td"); 
+                textnode = document.createTextNode(pobjReturnJSON.Id);
+                td5.appendChild(textnode);
+                tr.appendChild(tdId); 
+
+                let tdPeriodo = document.createElement("td"); 
+                textnode = document.createTextNode(pobjReturnJSON.Periodo);
+                td3.appendChild(textnode); 
+                tr.appendChild(tdPeriodo); 
+
+                let tdIdPreRequisitos = document.createElement("td");
+                textnode = document.createTextNode(pobjReturnJSON.IdPreRequisito);
+                td3.appendChild(textnode);
+                tr.appendChild(tdIdPreRequisito);
+
+                let tdCreditos= document.createElement("td"); 
+                textnode = document.createTextNode(pobjReturnJSON.Creditos);
+                td5.appendChild(textnode);
+                tr.appendChild(tdCreditos); 
+                
+                textnode = document.createTextNode("Listar1");
+                tagP.appendChild(textnode);
+    
+                td4.appendChild(tagP);
+                tr.appendChild(td4);
+    
+                tb.appendChild(tr);
+            }
+     </script>
+</head>
+<body>
+    <form action="Exibir1.php" method="POST" >
+        Id:<input type="text" name="Id"><br>
+        <input type="submit" name="botao" value="enviar">
+    </form> 
+
+</body>
+</html>

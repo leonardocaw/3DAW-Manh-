@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+function enviarForm()
+                {
+                let Nome = document.getElementById("Nome").value;
+                let Id = document.getElementById("Id").value;
+                let Periodo = document.getElementById("Periodo").value;
+                let IdpreRequisitos = document.getElementById("IdPreRequisitos").value;
+                let Creditos = document.getElementById("Creditos").value;
+                let xmlHttp = new XMLHttpRequest();
+
+     xmlHttp.open("GET","http://localhost/AV1%203DAW%20Leonardo%20Santos/CriarDisciplina.php?Nome=" + Nome +
+    "&Id=" + Id + "&Periodo=" + Periodo + "&IdPreRequisitos=" + IdPreRequisitos + "&Creditos=" + Creditos);
+    xmlHttp.send();
+}
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Criar Disciplina</title>
+</head>
+<body>
+    <form action="CriarDisciplina.php">
+        Nome:<input type="text" name="Nome" id="Nome"><br>
+        Id:<input type="text" name="Id" id="Id"><br>
+        Periodo:<input type="text" name="Periodo" id="Periodo"><br>
+        IdPreRequisitos:<input type="text" name="IdPreRequisitos" id="IdPreRequisitos"><br>
+        Creditos:<input type="text" name="Creditos" id="Creditos"><br>
+        <input type="button" name="botao" value="enviar" onclick="enviarForm();">
+    </form> 
+</body>
+</html>

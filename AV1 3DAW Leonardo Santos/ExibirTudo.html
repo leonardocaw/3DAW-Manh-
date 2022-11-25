@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+function carregaAlunos() {
+                let xmlHttp = new XMLHttpRequest();
+                    xmlHttp.onreadystatechange = function() {
+                        console.log("mudou status: " + this.readyState);
+                        if (this.readyState == 4 && this.status == 200) {
+                        //    console.log("Chegou resposta: " + this.responseText)
+                        //    document.getElementById("msg").innerHTML = this.responseText;
+                            let obj = JSON.parse(this.responseText);
+                            let x = 0;
+                            for (x=0;x<obj.length;x++) {
+                                console.log("Posicao do Array " + x + " : " + obj[x].nome);
+                                let linha = obj[x];
+                                criarLinhaTabela(linha);
+                            }
+                            console.log("Posicao do x " + x );
+                        }
+                    }
+                    xmlHttp.open("GET", "http://localhost/AV1%203DAW%20Leonardo%20Santos/ExibirTudo.php");
+                    xmlHttp.send();
+            }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exibir Tudo</title>
+
+</head>
+<body onload="carregaAlunos();">
+
+<form>
+
+<label>Nome:</label>
+<input type="text" name = "Nome" id = "Nome" value=""> <br> <br>
+<label>Id:</label>
+<input type="text" name = "Período" id = "Período" value=""> <br> <br>
+<label>Prérequisito:</label>
+<input type="text" name = "Prérequisito" id = "Prérequisito" value=""> <br> <br>
+<label>Créditos:</label>
+<input type="text" name = "Créditos" id = "Créditos" value=""> <br> <br>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+
+    function enviarFormAlt() 
+
+                {
+                let Nome = document.getElementById("Nome").value;
+                let Id = document.getElementById("Id").value;
+                let Periodo = document.getElementById("Periodo").value;
+                let IdPreRequisitos = document.getElementById("IdPreRequisitos").value;
+                let Creditos = document.getElementById("Creditos").value;
+                let xmlHttp = new XMLHttpRequest();
+
+        xmlHttp.open("GET", "http://localhost/AV1%203DAW%20Leonardo%20Santos/Alterar.php?Nome=" + Nome +
+    "&Id=" + Id + "&Periodo=" + Periodo + "&IdPreRequisitos=" + IdPreRequisitos + "&Creditos=" + Creditos);
+    xmlHttp.send();
+    }  
+
+function buscarDiscp() 
+
+            {
+            let id = document.getElementById("Nome").value;
+            let xmlHttp = new XMLHttpRequest();
+            
+            xmlHttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    let obj = JSON.parse(this.responseText);
+                    
+                    document.getElementById("Id").value = obj.Nome;
+                    document.getElementById("Periodo").value = obj.Periodo;
+                    document.getElementById("IdPreRequisitos").value = obj.IdPreRequisitos;
+                    document.getElementById("Creditos").value = obj.Creditos;
+                    
+                    let formAlt = document.getElementById("enviarFormAlt");
+                    formAlt.style.display = "block";
+    }
+
+            }
+            xmlHttp.open("GET", "http://localhost/AV1%203DAW%20Leonardo%20Santos/Alterar.html?Nome=" + Nome);
+            xmlHttp.send();
+        }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alterar</title>
+</head>
+<body>
+    <form action="Alterar.php">
+        Nome:<input type="text" name="Nome" id="Nome"><br>
+        Id:<input type="text" name="Id" id="Id"><br>
+        Periodo:<input type="text" name="Periodo" id="Periodo"><br>
+        IdPreRequisitos:<input type="text" name="IdPreRequisitos" id="IdPreRequisitos"><br>
+        Creditos:<input type="text" name="Creditos" id="Creditos"><br>
+
+        <input type="button" name="botao" value="enviar" onclick="enviarFormAlt();">
+
+    </form>
+</body>
+</html>
