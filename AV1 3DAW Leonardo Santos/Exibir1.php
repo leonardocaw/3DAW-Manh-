@@ -12,8 +12,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     $sql="SELECT * FROM `disciplina` WHERE `Id`= $Id";
     $result = $conn->query($sql);
     if($result==true){
-    
-    $linha= mysqli_fetch_row($result);
+           echo  $sql ;
+       if (! $conn -> consulta ( $sql )){
+           echo ( $conn -> erro );
+       }
     }
-}
 ?>
