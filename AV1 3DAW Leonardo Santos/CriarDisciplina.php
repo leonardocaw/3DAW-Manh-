@@ -16,8 +16,10 @@ if($_SERVER["REQUEST_METHOD"]=="GET")
     $sql="INSERT INTO `disciplina`(`Nome`, `Id`, `Periodo`, `IdPreRequisitos`, `Creditos`)
     VALUES ( '$Nome','$Id','$Periodo','$IdPreRequisitos','$Creditos')";
    
-   $result=$conn->query($sql);
-    
+         echo  $sql ;
+       if (! $conn -> consulta ( $sql )){
+           echo ( $conn -> erro );
+       }
 }
 ?>
 
